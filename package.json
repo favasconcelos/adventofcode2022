@@ -1,7 +1,6 @@
 {
   "name": "advent-of-code-2022",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
   "devDependencies": {
     "prettier": "2.8.0"
