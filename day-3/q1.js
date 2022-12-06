@@ -12,7 +12,6 @@ async function main() {
 
   function getPriority(character = "") {
     const uppercased = isUppercase(character);
-    console.log({ uppercased, character, code: character.charCodeAt(0) });
     if (uppercased) {
       return character.charCodeAt(0) - UPPERCASE_DIFF;
     } else {
@@ -38,17 +37,12 @@ async function main() {
 
     sum = common.reduce((total, item) => {
       const priority = getPriority(item);
-      console.log({ item, priority });
       return total + priority;
     }, sum);
   }
   await readFile(__dirname, "input.txt", handleLine);
 
-  console.log({
-    sum,
-    // A: "A".charCodeAt(0),
-    // Z: "Z".charCodeAt(0),
-  });
+  console.log({ sum });
 }
 
 main();

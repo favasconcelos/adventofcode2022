@@ -16,8 +16,6 @@ async function main() {
     const [section1Start, section1End] = section1;
     const [section2Start, section2End] = section2;
 
-    // 1-1,1,2
-    // 1-2,1-1
     return (
       (section2Start <= section1Start && section2End >= section1End) ||
       (section1Start <= section2Start && section1End >= section2End)
@@ -27,7 +25,6 @@ async function main() {
   function handleLine(line) {
     const [section1, section2] = buildSections(line);
     if (isContained(section1, section2)) {
-      console.log({ section1, section2 });
       sum++;
     }
   }

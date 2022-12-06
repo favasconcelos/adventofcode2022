@@ -1,24 +1,10 @@
-const fs = require("fs");
-const readline = require("readline");
-const path = require("path");
-const events = require("events");
-
-async function readFile(fileName, onNewLine) {
-  const inputFile = path.resolve(__dirname, fileName);
-  const input = fs.createReadStream(inputFile);
-  const interface = readline.createInterface({
-    input,
-  });
-  interface.on("line", onNewLine);
-  await events.once(interface, "close");
-}
+const { readFile } = require("../utils/input");
 
 async function main() {
   const elfs = {};
   let currentElf = null;
 
   function processLine(line) {
-    console.log("processLine", { line });
     if (line === "") {
       currentElf += 1;
       return;
@@ -30,7 +16,7 @@ async function main() {
     elfs[currentElf] = currentValue + value;
   }
 
-  await readFile("input1.txt", processLine);
+  await readFile(__dirname, "input1.txt", processLine);
 
   const elfsCalories = Object.values(elfs);
   elfsCalories.sort((a, b) => {

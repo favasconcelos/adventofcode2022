@@ -49,11 +49,7 @@ async function main() {
   }
   await readFile(__dirname, "input.txt", handleLine);
 
-  console.log({
-    sum,
-    // A: "A".charCodeAt(0),
-    // Z: "Z".charCodeAt(0),
-  });
+  console.log({ sum });
 }
 
 main();

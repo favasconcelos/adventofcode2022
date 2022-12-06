@@ -1,17 +1,4 @@
-const fs = require("fs");
-const readline = require("readline");
-const path = require("path");
-const events = require("events");
-
-async function readFile(fileName, onNewLine) {
-  const inputFile = path.resolve(__dirname, fileName);
-  const input = fs.createReadStream(inputFile);
-  const interface = readline.createInterface({
-    input,
-  });
-  interface.on("line", onNewLine);
-  await events.once(interface, "close");
-}
+const { readFile } = require("../utils/input");
 
 const PLAYS = {
   ROCK: "rock",
@@ -78,7 +65,7 @@ async function main() {
     oponentScore += aScore;
     yourScore += bScore;
   }
-  await readFile("input1.txt", processLine);
+  await readFile(__dirname, "input1.txt", processLine);
   console.log({ oponentScore, yourScore });
 }
 
