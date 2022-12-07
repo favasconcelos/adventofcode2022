@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "devDependencies": {
+    "lodash": "4.17.21",
     "prettier": "2.8.0"
   }
 }
